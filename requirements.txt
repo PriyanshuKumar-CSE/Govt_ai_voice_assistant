@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+websockets<14
+python-dotenv
+twilio
+langchain-openai
+langchain-chroma
+langchain-community
+langchain-text-splitters
+pypdf

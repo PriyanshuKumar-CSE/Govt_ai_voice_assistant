@@ -7,14 +7,14 @@ load_dotenv()
 # 1. Setup your credentials (must be in your .env)
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-twilio_number = "+18382215083"  # Your Twilio Number
-my_number = "+919873924855"      # Your Personal Number
+twilio_number = os.getenv("TWILIO_PHONE_NUMBER")  # Your Twilio Number
+my_number = os.getenv("MY_PHONE_NUMBER")          # The number to call
 
 client = Client(account_sid, auth_token)
 
-# 2. Your Pinggy/Tunnel URL
+# 2. Your public tunnel URL (e.g. Pinggy or ngrok) pointing at main.py
 # IMPORTANT: This must match the route in your main.py that returns the <Connect><Stream> TwiML
-BASE_URL = "http://itsca-103-87-51-95.a.free.pinggy.link"
+BASE_URL = os.getenv("PUBLIC_BASE_URL")
 
 def make_call():
     print(f"📞 Initializing call to {my_number}...")
